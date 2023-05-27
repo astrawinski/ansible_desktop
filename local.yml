@@ -1,60 +1,12 @@
----
 - hosts: localhost
   connection: local
   become: true
 
+  pre_tasks:
+    - name: update repositories
+      apt:
+        update_cache: yes
+      changed_when: False
+
   tasks:
-  - name: install packages
-    package:
-      name:
-        - htop
-        - tmux
-        - python3-psutil
-        - open-vm-tools
-        - open-vm-tools-desktop
-
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.jpeg
-      dest: /usr/share/backgrounds/ansible-wallpaper.jpg
-      owner: root
-      group: root
-
-  - name: set wallpaper
-    become_user: astrawinski
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri-dark"
-      value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
-
-  - name: set wallpaper position
-    become_user: astrawinski
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
-
-  - name: copy .bashrc file
-    copy:
-      src: files/bashrc
-      dest: /home/astrawinski/.bashrc
-      owner: astrawinski
-      group: astrawinski
-
-  - name: add ansible user
-    user:
-      name: velociraptor
-      system: yes
-
-  - name: setup sudo for ansible user
-    copy:
-      src: files/sudoer_velociraptor
-      dest: /etc/sudoers.d/velociraptor
-      owner: root
-      group: root
-      mode: 0440
-
-  - name: add ansible-pull cron job
-    cron:
-      name: ansisible-auto-provision
-      user: velociraptor
-      minute: "*/10"
-      job: ansible-pull -o -U https://github.com/astrawinski/ansible_desktop.git
+    - include: tasks/packages.yml
