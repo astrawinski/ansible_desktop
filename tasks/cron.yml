@@ -3,4 +3,4 @@
     name: ansible auto-provision
     user: velociraptor
     minute: "*/10"
-    job: "/usr/bin/ansible-pull -o -U https://github.com/astrawinski/ansible_desktop.git >/var/log/ansible.log"
+    job: "/usr/bin/ansible-pull -o -U https://github.com/astrawinski/ansible_desktop.git > /var/log/ansible.log"
