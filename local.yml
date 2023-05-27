@@ -10,6 +10,8 @@
         - htop
         - tmux
         - python3-psutil
+        - open-vm-tools
+        - open-vm-tools-desktop
 
   - name: copy wallpaper file
     copy:
