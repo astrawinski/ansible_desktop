@@ -31,3 +31,10 @@
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
 
+  - name: copy .bashrc file
+    copy:
+      src: files/bashrc
+      dest: /home/astrawinski/.bashrc
+      owner: astrawinski
+      group: astrawinski
+
