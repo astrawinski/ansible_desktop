@@ -23,7 +23,7 @@
     become_user: astrawinski
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+      value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpeg'"
 
   - name: set wallpaper position
     become_user: astrawinski
