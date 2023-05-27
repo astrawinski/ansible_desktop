@@ -6,6 +6,7 @@
       - python3-psutil
       - open-vm-tools
       - open-vm-tools-desktop
+      - openssh-server
 
 - name: copy wallpaper file
   copy:
