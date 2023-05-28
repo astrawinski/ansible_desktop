@@ -2,5 +2,5 @@
   cron:
     name: ansible auto-provision
     user: velociraptor
-    minute: "*/10"
+    minute: "*/1"
     job: "/usr/bin/ansible-pull -o -U https://github.com/astrawinski/ansible_desktop.git"
