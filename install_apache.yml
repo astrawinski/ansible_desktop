@@ -13,7 +13,7 @@
       update_cache: yes
     when: ansible_distribution == "Pop!_OS"
 
-  - name: install apache and php for CentOS  servers
+  - name: install apache and php for CentOS servers
     package:
       name:
         - httpd
